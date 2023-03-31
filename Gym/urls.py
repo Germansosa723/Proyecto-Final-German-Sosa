@@ -16,9 +16,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from AppGym.views import index
+from AppGym.views import index, RutinaList, RutinaCreate, RutinaDetail, RutinaUpdate, RutinaDelete, RutinaSearch
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name = 'index'),
+    path('rutina/list', RutinaList.as_view(), name="rutina-list"),
+    path('rutina/create', RutinaCreate.as_view(), name="rutina-create"),
+    path('rutina/buscar', RutinaSearch.as_view(), name="rutina-search"),
+    path('rutina/<pk>/detail', RutinaDetail.as_view(), name="rutina-detail"),
+    path('rutina/<pk>/update', RutinaUpdate.as_view(), name="rutina-update"),
+    path('rutina/<pk>/delete', RutinaDelete.as_view(), name="rutina-delete"),
 ]

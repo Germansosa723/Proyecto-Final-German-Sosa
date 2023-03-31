@@ -1,0 +1,14 @@
+{% extends "AppGym/base.html" %}
+
+{% load static %}
+
+{% block principal %}
+<h1>Detalle del post</h1>
+<div>
+    <ul> 
+        <li> {{ object.id}}</li>
+        <li> {{ object.descripcion }} </li> 
+    </ul>
+</div>
+
+{% endblock %}
