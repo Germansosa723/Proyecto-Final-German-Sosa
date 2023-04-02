@@ -15,13 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from AppGym.views import index
-from AppGym.views import index, RutinaList, RutinaCreate, RutinaDetail, RutinaUpdate, RutinaDelete, RutinaSearch, Login, Logout, SignUp
-
+from AppGym.views import index, sobremi, RutinaList, RutinaCreate, RutinaDetail, RutinaUpdate, RutinaDelete, RutinaSearch, Login, Logout, SignUp, RutinaMineList, ProfileCreate, ProfileUpdate, MensajeCreate, MensajeDelete, MensajeList
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name = 'index'),
+    path('sobre/mi' ,sobremi, name = 'sobremi'),
     path('rutina/list', RutinaList.as_view(), name="rutina-list"),
     path('rutina/create', RutinaCreate.as_view(), name="rutina-create"),
     path('rutina/buscar', RutinaSearch.as_view(), name="rutina-search"),
@@ -31,4 +32,12 @@ urlpatterns = [
     path('login/', Login.as_view(), name="login"),
     path('logout/', Logout.as_view(), name="logout"),
     path('signup/', SignUp.as_view(), name="signup"),
+    path('rutina/list/mine', RutinaMineList.as_view(), name="rutina-mine"),
+    path('profile/create', ProfileCreate.as_view(), name="profile-create"),   
+    path('profile/<pk>/update', ProfileUpdate.as_view(), name="profile-update"),
+    path('mensaje/list', MensajeList.as_view(), name="mensaje-list" ),
+    path('mensaje/create', MensajeCreate.as_view(), name="mensaje-create" ),
+    path('mensaje/<pk>/delete', MensajeDelete.as_view(), name="mensaje-delete"),
+
 ]
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

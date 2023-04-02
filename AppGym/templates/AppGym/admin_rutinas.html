@@ -1,0 +1,26 @@
+{% extends "AppGym/base.html" %}
+
+{% load static %}
+
+{% block principal %}
+
+{% if form %}
+<h1>Admin de Rutina</h1>
+    <form action="{% url 'agregar-rutinas' %}" method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="Agregar">
+    </form>
+{% else %}
+<h1>Resultados de la Busqueda: </h1>
+{% endif %}
+
+<ul>
+    {%  for post in rutinas  %}
+    <li> {{post.id}} - {{post.titulo_rutina}} </li>
+    {% endfor %}
+</ul>
+
+
+
+{% endblock %}

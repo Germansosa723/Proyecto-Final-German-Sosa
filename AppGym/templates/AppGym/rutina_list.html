@@ -14,7 +14,7 @@
         <li style="margin-top: 5px;"> 
             {{post.id}} - {{post.creado_el}} - {{ post.titulo_rutina }}   
             <a href="{% url 'rutina-detail' post.id %}" class="btn btn-primary btn-sm">Detalle</a>
-            {% if user.is_authenticated %}
+            {% if user.is_authenticated  and user.id == post.publicador.id  %}
             <a href="{% url 'rutina-update' post.id %}" class="btn btn-secondary btn-sm">Actulizar</a>
             <a href="{% url 'rutina-delete' post.id %}" class="btn btn-danger btn-sm">Borrar</a>
             {% endif %} 
