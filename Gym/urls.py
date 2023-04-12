@@ -15,9 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from AppGym.views import index, sobremi, RutinaList, RutinaCreate, RutinaDetail, RutinaUpdate, RutinaDelete, RutinaSearch, Login, Logout, SignUp, RutinaMineList, ProfileCreate, ProfileUpdate, MensajeCreate, MensajeDelete, MensajeList
+from AppGym.views import index, sobremi, RutinaList, RutinaCreate, RutinaDetail, RutinaUpdate, RutinaDelete, RutinaSearch, Login, Logout, SignUp, RutinaMineList, ProfileCreate, ProfileUpdate
 from django.conf import settings
 from django.conf.urls.static import static
+from mensajes.urls import MensajeDelete, MensajeList, MensajeCreate
 
 urlpatterns = [
     path('admin/', admin.site.urls),

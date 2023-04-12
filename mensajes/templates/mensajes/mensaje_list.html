@@ -3,10 +3,14 @@
 {% load static %}
 
  {% block principal %}
- <h1> Mis Mensajes </h1>
+
+
+<h1> Mis Mensajes </h1>
+<h2> Mis Mensajes</h2>
 <ul>
     {%  for mensaje in mensajes  %}
-    <li> Mensaje de: {{mensaje.email}} 
+    <li>
+         Mensaje de: {{mensaje.email}} 
         <br> 
         {{ mensaje.mensaje }}
         <br>
